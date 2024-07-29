@@ -50,4 +50,10 @@ public class TravelController
 		trepo.delete(travel);
 		return new ResponseEntity<>(travel,HttpStatus.OK);
 	}
+	
+	@RequestMapping("/place/{place}")
+	public ResponseEntity<List<Travel>> byplace(@PathVariable String place)
+	{
+		return new ResponseEntity<>(trepo.findByPlace(place),HttpStatus.OK);
+	}
 }
